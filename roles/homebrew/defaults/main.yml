@@ -5,7 +5,19 @@ homebrew_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/u
 homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
 homebrew_brew_bin_path: "{{ homebrew_prefix }}/bin"
 
-homebrew_installed_packages: []
+homebrew_installed_packages:
+  - awscli
+  - aws-sam-cli
+  - bundletool
+  - git
+  - gh
+  - htop
+  - imagemagick
+  - jq
+  - mitmproxy
+  - tmux
+  - watch
+  - wget
 
 homebrew_uninstalled_packages: []
 
@@ -13,20 +25,36 @@ homebrew_upgrade_all_packages: false
 
 homebrew_taps:
   - homebrew/core
+  - aws/tap
 
-homebrew_cask_apps: []
+homebrew_cask_apps:
+  - android-file-transfer
+  - android-studio
+  - docker
+  - google-chrome
+  - miro
+  - postman
+  - provisionql
+  - slack
 
 homebrew_cask_uninstalled_apps: []
 
 homebrew_cask_appdir: /Applications
-homebrew_cask_accept_external_apps: false
+homebrew_cask_accept_external_apps: true
 
-# Set this to your account password if casks need elevated privileges.
-# ansible_become_password: ''
-
-homebrew_use_brewfile: true
+homebrew_use_brewfile: false
 homebrew_brewfile_dir: '~'
 
 homebrew_clear_cache: false
 
-homebrew_folders_additional: []
+# avoid https://github.com/geerlingguy/ansible-role-homebrew/issues/123
+homebrew_folders_additional:
+  - share/man
+  - share/man/man1
+  - share/man/man2
+  - share/man/man3
+  - share/man/man4
+  - share/man/man5
+  - share/man/man6
+  - share/man/man7
+  - share/man/man8

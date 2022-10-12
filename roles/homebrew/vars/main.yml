@@ -1,4 +1,6 @@
 ---
+homebrew_user: "{{ ansible_user }}"
+homebrew_group: "admin"
 homebrew_folders_base:
   - Cellar
   - Homebrew
