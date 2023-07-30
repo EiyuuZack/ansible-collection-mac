@@ -178,3 +178,10 @@
     - name: Install from Brewfile.
       command: "{{ homebrew_brew_bin_path }}/brew bundle chdir={{ homebrew_brewfile_dir }}"
       when: homebrew_brewfile.stat.exists and homebrew_use_brewfile
+
+- name: Ensure Homebrew is added to user's profile (ARM)
+  blockinfile:
+    path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.zprofile"
+    block: "{{ lookup('template', 'homebrew.sh.j2') }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK -- HOMEBREW"
+  when: ansible_machine == 'arm64'

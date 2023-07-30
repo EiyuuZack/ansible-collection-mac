@@ -1,0 +1,7 @@
+# Proper way to add Homebrew to PATH and export relevant variables according to installation instructions
+# found at https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+#
+# From https://github.com/Homebrew/brew/blob/master/Library/Homebrew/cmd/shellenv.sh:
+#   "When run in a shell, this installation of Homebrew will be added to your `PATH`, `MANPATH`, and `INFOPATH`.
+#   The variables `HOMEBREW_PREFIX`, `HOMEBREW_CELLAR` and `HOMEBREW_REPOSITORY` are also exported to avoid querying them multiple times."
+eval "$({{ homebrew_brew_bin_path }}/brew shellenv)"
