@@ -21,7 +21,6 @@ homebrew_installed_packages:
   - k3d
   - k9s
   - mitmproxy
-  - neoctl
   - tmux
   - xcodes
   - watch
