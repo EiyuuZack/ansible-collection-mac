@@ -32,7 +32,6 @@ homebrew_upgrade_all_packages: false
 
 homebrew_taps:
   - aws/tap
-  - outsystems/odc
 
 homebrew_cask_apps:
   - android-file-transfer
